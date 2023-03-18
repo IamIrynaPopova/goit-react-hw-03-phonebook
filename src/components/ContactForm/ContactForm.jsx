@@ -4,13 +4,14 @@ import css from './ContactForm.module.css';
 import PropTypes from 'prop-types';
 
 export class ContactForm extends Component {
+
+
   addContact = e => {
     e.preventDefault();
     const form = e.currentTarget;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
-    console.log(name, number);
-    if (this.props.contacts.find(contact => contact.name === name)) {
+     if (this.props.contacts.find(contact => contact.name === name)) {
       form.elements.name.value = '';
       return alert(`${name} is already in contacts`);
     }
@@ -19,7 +20,7 @@ export class ContactForm extends Component {
       name: name,
       number: number,
     });
-    form.reset();
+       form.reset();
   };
 
   render() {
