@@ -18,11 +18,9 @@ export class App extends Component {
 
   componentDidUpdate(_, prevState) {
     const contacts = this.state.contacts;
-    if (this.state.contacts.length > prevState.contacts.length) 
+    if (this.state.contacts !== prevState.contacts) 
       localStorage.setItem('contacts', JSON.stringify(contacts));
-    if (this.state.contacts.length < prevState.contacts.length)
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-  }
+     }
 
   createUser = user => {
     this.setState(prevState => {
